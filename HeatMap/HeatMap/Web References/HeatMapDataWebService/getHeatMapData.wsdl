@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetHeatMapData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetHeatMapDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHeatMapDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHeatMapData2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="level" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHeatMapData2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHeatMapData2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHeatMapDataByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="level" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="startdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="enddate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHeatMapDataByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHeatMapDataByDateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveIALocationData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deviceid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tokenid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="longitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="latitude" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="venueid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="floorplanid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="floorid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveIALocationDataResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHeatMapDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHeatMapData" />
+  </wsdl:message>
+  <wsdl:message name="GetHeatMapDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHeatMapDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHeatMapData2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetHeatMapData2" />
+  </wsdl:message>
+  <wsdl:message name="GetHeatMapData2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetHeatMapData2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetHeatMapDataByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHeatMapDataByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetHeatMapDataByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHeatMapDataByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveIALocationDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveIALocationData" />
+  </wsdl:message>
+  <wsdl:message name="SaveIALocationDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveIALocationDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="getHeatMapDataSoap">
+    <wsdl:operation name="GetHeatMapData">
+      <wsdl:input message="tns:GetHeatMapDataSoapIn" />
+      <wsdl:output message="tns:GetHeatMapDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHeatMapData2">
+      <wsdl:input message="tns:GetHeatMapData2SoapIn" />
+      <wsdl:output message="tns:GetHeatMapData2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHeatMapDataByDate">
+      <wsdl:input message="tns:GetHeatMapDataByDateSoapIn" />
+      <wsdl:output message="tns:GetHeatMapDataByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveIALocationData">
+      <wsdl:input message="tns:SaveIALocationDataSoapIn" />
+      <wsdl:output message="tns:SaveIALocationDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="getHeatMapDataSoap" type="tns:getHeatMapDataSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHeatMapData">
+      <soap:operation soapAction="http://tempuri.org/GetHeatMapData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeatMapData2">
+      <soap:operation soapAction="http://tempuri.org/GetHeatMapData2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeatMapDataByDate">
+      <soap:operation soapAction="http://tempuri.org/GetHeatMapDataByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveIALocationData">
+      <soap:operation soapAction="http://tempuri.org/SaveIALocationData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="getHeatMapDataSoap12" type="tns:getHeatMapDataSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHeatMapData">
+      <soap12:operation soapAction="http://tempuri.org/GetHeatMapData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeatMapData2">
+      <soap12:operation soapAction="http://tempuri.org/GetHeatMapData2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHeatMapDataByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetHeatMapDataByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveIALocationData">
+      <soap12:operation soapAction="http://tempuri.org/SaveIALocationData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="getHeatMapData">
+    <wsdl:port name="getHeatMapDataSoap" binding="tns:getHeatMapDataSoap">
+      <soap:address location="http://172.16.192.59/iBeaconWebservice/getHeatMapData.asmx" />
+    </wsdl:port>
+    <wsdl:port name="getHeatMapDataSoap12" binding="tns:getHeatMapDataSoap12">
+      <soap12:address location="http://172.16.192.59/iBeaconWebservice/getHeatMapData.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
